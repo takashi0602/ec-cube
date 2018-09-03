@@ -94,6 +94,21 @@ file that was distributed with this source code.
                 // messageの変更
                 $(this).find('p.modal-message').text(target.data('message'));
             });
+
+            {# TODO: 表示・非表示を登録できるようにする #}
+            // 表示・非表示
+            $('.check-display').click(function(){
+                var id = $(this).attr('id');
+                if($('.display-show-toggle-' + id).hasClass('fa-eye')){
+                    $('.display-show-toggle-' + id).addClass('fa-eye-slash');
+                    $('.display-show-toggle-' + id).removeClass('fa-eye');
+                    $('#' + id).css('background-color','#FAF1F1');
+                }else{
+                    $('.display-show-toggle-' + id).addClass('fa-eye');
+                    $('.display-show-toggle-' + id).removeClass('fa-eye-slash');
+                    $('#' + id).css('background-color','');
+                }
+            });
         });
     </script>
 {% endblock %}
@@ -134,6 +149,10 @@ file that was distributed with this source code.
                                                         </a>
                                                         <a href="#" class="btn btn-ec-actionIcon mr-3 action-down {% if loop.last %}disabled{% endif %}" data-tooltip="true" data-placement="top" title="{{ 'admin.common.down'|trans }}">
                                                             <i class="fa fa-arrow-down fa-lg text-secondary"></i>
+                                                        </a>
+                                                        {# TODO クラス名、id名の設定、メッセージID化、登録機能 #}
+                                                        <a class="btn btn-ec-actionIcon mr-2 check-display" id="{{ Delivery.id }}" data-tooltip="true" data-placement="top" title="表示">
+                                                            <i class="fa fa-eye fa-lg text-secondary display-show-toggle-{{ Delivery.id }}"></i>
                                                         </a>
                                                         <div class="d-inline-block mr-3" data-tooltip="true" data-placement="top"
                                                              title="{{ 'admin.common.delete'|trans }}">
