@@ -137,8 +137,9 @@ file that was distributed with this source code.
                                                         </a>
                                                         <a class="btn btn-ec-actionIcon mr-3 action-visible" href="{{ url('admin_setting_shop_delivery_visibility', {'id': Delivery.id }) }}"
                                                            data-tooltip="true" data-placement="top" title="{{ Delivery.visible ? 'admin.common.to_hide'|trans : 'admin.common.to_show'|trans }}"
-                                                           data-confirm="false" data-method="put" {{ csrf_token_for_anchor() }} >
-                                                            <i class="fa fa-toggle-{{ Delivery.visible ? 'on' : 'off' }} fa-lg text-secondary" aria-hidden="true"></i>
+                                                           data-confirm="false" data-method="put" {{ csrf_token_for_anchor() }}
+                                                           style="{{ ClassCategory.visible ? '' : 'background-color: #FAF1F1;' }}">
+                                                            <i class="fa fa-{{ ClassCategory.visible ? 'eye' : 'eye-slash' }} fa-lg text-secondary" aria-hidden="true"></i>
                                                         </a>
                                                         <div class="d-inline-block mr-3" data-tooltip="true" data-placement="top"
                                                              title="{{ 'admin.common.delete'|trans }}">
